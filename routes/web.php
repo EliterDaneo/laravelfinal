@@ -3,6 +3,7 @@
 use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SewaController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,14 @@ Route::controller(LoginController::class)->group(function () {
 Route::get('/home', [LayoutController::class, 'index'])->middleware('auth');
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['CekUserLogin:1']], function () {
+        Route::controller(SewaController::class)->group(function () {
+            Route::get('sewa', 'index')->name('sewa');
+        });
+        Route::controller(UsersController::class)->group(function () {
+            Route::get('user', 'index')->name('user');
+        });
+    });
+    Route::group(['middleware' => ['CekUserLogin:2']], function () {
         Route::controller(SewaController::class)->group(function () {
             Route::get('sewa', 'index')->name('sewa');
         });

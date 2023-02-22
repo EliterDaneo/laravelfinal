@@ -16,12 +16,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Menu
                     </a>
                     @if ($user->level == 1)
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ url('sewa') }}">Data Sewa</a></li>
-                            <li><a class="dropdown-item" href="#">Data User</a></li>
+                            <li><a class="dropdown-item" href="{{ url('user') }}">Data User</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -29,7 +29,7 @@
                         </ul>
                     @elseif ($user->level == 2)
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Data Sewa</a></li>
+                            <li><a class="dropdown-item" href="{{ url('sewa') }}">Data Sewa</a></li>
                         </ul>
                     @endif
                 </li>

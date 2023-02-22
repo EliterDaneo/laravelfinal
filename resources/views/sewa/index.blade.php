@@ -18,6 +18,7 @@
                             <th scope="col">Lama</th>
                             <th scope="col">Penyewa</th>
                             <th scope="col">Harga</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,20 @@
                                 <td>{{ $s->lama }}</td>
                                 <td>{{ $s->penyewa }}</td>
                                 <td>Rp. {{ $s->harga }}</td>
+                                <td>
+                                    @if ($user->level == 1)
+                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                            <a href="" class="btn btn-danger">Hapus</a>
+                                            <a href="" class="btn btn-warning">Edit</a>
+                                            <a href="" class="btn btn-success">Detail</a>
+                                        </div>
+                                    @elseif ($user->level == 2)
+                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                            <a href="" class="btn btn-warning">Edit</a>
+                                            <a href="" class="btn btn-success">Detail</a>
+                                        </div>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
